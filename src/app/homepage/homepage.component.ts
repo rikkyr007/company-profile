@@ -22,13 +22,13 @@ export class HomepageComponent implements OnInit {
     let element = document.querySelector('.navbar');
     if (window.pageYOffset > element.clientHeight) {
       element.classList.remove('bg-transparent');
-      element.classList.add('navbar-dark');
-      element.classList.add('bg-primary');
+      element.classList.add('navbar-light');
+      element.classList.add('bg-light');
       element.classList.add('toggle-nav');
     } else {
       element.classList.remove('toggle-nav');
-      element.classList.remove('bg-primary');
-      element.classList.remove('navbar-dark');
+      element.classList.remove('bg-light');
+      element.classList.remove('navbar-light');
       element.classList.add('bg-transparent');
     }
   }

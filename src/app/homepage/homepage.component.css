@@ -24,12 +24,12 @@
     font-family: Avenir;
     font-size: 14px;
     font-weight: bold;
-    color: white;
+    color: grey;
     text-decoration: none;
   }
 
   .toggle-nav a:hover {
-    color: yellow;    
+    color: black;    
   }
   
   .bground { 
@@ -81,7 +81,66 @@
     align-items: center;
   }
 
-  .spacing{
-    background-color: red;
+  .spacing1{
+    background-color: white;
     height: 300px;
+    width: 100%;
   }
+
+  .spacing2{
+    background-color: white;
+    height: 400px;
+    width: 100%;
+  }
+
+  .product-wrap{
+    background-color: white;
+    width: 100%;
+    height: auto;
+    display: flex; 
+  }
+
+  .product-background { 
+    /* The image used */
+    background-image: url("../../assets/frontend/img/product/burger.png");
+    opacity: 0.8;
+
+    /* Full height */
+    height: 100%; 
+    min-height: 300px;
+    width:100%;
+    min-width: 300px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .product-background:hover { 
+    /* The image used */
+    background-image: url("../../assets/frontend/img/product/burger.png");
+    opacity: 1;
+
+    /* Full height */
+    height: 100%; 
+    min-height: 300px;
+    width:100%;
+    min-width: 300px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .product-overlay{
+    background-color: black; 
+    position: absolute;
+    }
