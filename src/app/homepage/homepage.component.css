@@ -123,5 +123,6 @@
   }
   
   .product-header:hover{
-    opacity: 1;
+    background-color: white;
+    opacity: 0.8;
   }
