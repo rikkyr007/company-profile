@@ -29,7 +29,7 @@
               "src/assets/backend/adminlte/dist/css/adminlte.min.css"
             ],
             "scripts": [
-              "src/assets/frontend/js/plugins/jquery-3.4.1.slim.min.js",
+              "src/assets/backend/adminlte/plugins/jquery/jquery.min.js",
               "src/assets/frontend/js/plugins/bootstrap.min.js",
               "src/assets/frontend/js/plugins/popper.min.js",
               "src/assets/backend/adminlte/plugins/bootstrap/js/bootstrap.min.js",
