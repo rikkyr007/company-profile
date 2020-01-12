@@ -10,6 +10,9 @@ import { DynamicScriptLoaderService }                           from '../../shar
 // Environtment
 import { environment }                                           from 'src/environments/environment';
 
+// Library
+declare var $: any;
+
 @Component({
   selector: 'app-feature',
   templateUrl: './feature.component.html',

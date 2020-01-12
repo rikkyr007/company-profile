@@ -8,9 +8,12 @@ interface Scripts {
 
 export const ScriptStore: Scripts[] = [
   { name: 'DataTablesJpa',        src: `${environment.assets_url}assets/backend/modules/datatables/datatables.jquery.js` },
-  { name: 'DataTables',           src: `${environment.assets_url}assets/backend/modules/datatables/datatables.min.js` }
+  { name: 'DataTables',           src: `${environment.assets_url}assets/backend/modules/datatables/datatables.min.js` },
+  { name: 'Popper',               src: `${environment.assets_url}assets/frontend/js/plugins/popper.min.js` },
+  { name: 'Bootstrap',            src: `${environment.assets_url}assets/backend/adminlte/plugins/bootstrap/js/bootstrap.min.js` },
+  { name: 'AdminLTE',             src: `${environment.assets_url}assets/backend/adminlte/dist/js/adminlte.min.js` }
 ];
-
+               
 declare var document: any;
 
 @Injectable()

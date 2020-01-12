@@ -15,6 +15,7 @@ import { FooterComponent }          from './layout/footer/footer.component';
 import { SettingComponent }         from './layout/setting/setting.component';
 
 // Package
+import { DynamicScriptLoaderService } from '../shared/services/dynamic-script.service';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule }   from '@ngx-loading-bar/http-client';
 
@@ -35,6 +36,8 @@ import { LoadingBarHttpClientModule }   from '@ngx-loading-bar/http-client';
     FooterComponent,
     SettingComponent
   ],
-  providers: []
+  providers: [
+    DynamicScriptLoaderService
+  ]
 })
 export class AdminModule {}

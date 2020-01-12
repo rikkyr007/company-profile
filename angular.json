@@ -31,10 +31,8 @@
             "scripts": [
               "src/assets/backend/adminlte/plugins/jquery/jquery.min.js",
               "src/assets/frontend/js/plugins/bootstrap.min.js",
-              "src/assets/frontend/js/plugins/popper.min.js",
-              "src/assets/backend/adminlte/plugins/bootstrap/js/bootstrap.min.js",
-              "src/assets/backend/adminlte/dist/js/adminlte.min.js",
-              "node_modules/jquery-ui-dist/jquery-ui.min.js"
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
             ],
             "es5BrowserSupport": true
           },
