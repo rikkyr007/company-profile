@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<section class="content-header">
+  <div class="container-fluid">
+
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Feature Management</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/{{prefix}}/admin/">Home</a></li>
+          <li class="breadcrumb-item active">Feature Management</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+      </div>
+      <!-- form start -->
+      <form [formGroup]="featureForm" (ngSubmit)="createFeature()">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Features Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">Feature Image</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="exampleInputFile">
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="">Upload</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+      <table id="featureDatatables" class="table dataTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Feature Name</th>
+            <th>Feature Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+      
+    </div>
+    <!-- /.card -->
+
+  </div><!-- /.container-fluid -->
+</section>

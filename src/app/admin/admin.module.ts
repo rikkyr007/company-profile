@@ -14,13 +14,18 @@ import { MainComponent }            from './layout/main/main.component';
 import { FooterComponent }          from './layout/footer/footer.component';
 import { SettingComponent }         from './layout/setting/setting.component';
 
+// Package
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarHttpClientModule }   from '@ngx-loading-bar/http-client';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    LoadingBarHttpClientModule
   ],
   declarations: [
     AdminComponent,
