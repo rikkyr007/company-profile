@@ -26,7 +26,8 @@
               "src/styles.css",
               "src/assets/frontend/css/plugins/bootstrap/bootstrap.min.css",
               "src/assets/backend/adminlte/plugins/fontawesome-free/css/all.min.css",
-              "src/assets/backend/adminlte/dist/css/adminlte.min.css"
+              "src/assets/backend/adminlte/dist/css/adminlte.min.css",
+              "src/assets/backend/adminlte/plugins/overlayscrollbars/OverlayScrollbars.min.css"
             ],
             "scripts": [
               "src/assets/backend/adminlte/plugins/jquery/jquery.min.js",

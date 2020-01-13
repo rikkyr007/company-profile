@@ -11,7 +11,8 @@ export const ScriptStore: Scripts[] = [
   { name: 'DataTables',           src: `${environment.assets_url}assets/backend/modules/datatables/datatables.min.js` },
   { name: 'Popper',               src: `${environment.assets_url}assets/frontend/js/plugins/popper.min.js` },
   { name: 'Bootstrap',            src: `${environment.assets_url}assets/backend/adminlte/plugins/bootstrap/js/bootstrap.min.js` },
-  { name: 'AdminLTE',             src: `${environment.assets_url}assets/backend/adminlte/dist/js/adminlte.min.js` }
+  { name: 'AdminLTE',             src: `${environment.assets_url}assets/backend/adminlte/dist/js/adminlte.min.js` },
+  { name: 'OverlayScrollbars',    src: `${environment.assets_url}assets/backend/adminlte/plugins/overlayscrollbars/jquery.overlayScrollbars.min.js` }
 ];
                
 declare var document: any;

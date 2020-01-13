@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
 
   public loadScripts() {
     // You can load multiple scripts by just providing the key as argument into load method of the service
-    this.dynamicScriptLoader.load('Bootstrap','AdminLTE').then(data => {
+    this.dynamicScriptLoader.load('Bootstrap','AdminLTE','OverlayScrollbars').then(data => {
     }).catch(error => console.log(error));
   }
 

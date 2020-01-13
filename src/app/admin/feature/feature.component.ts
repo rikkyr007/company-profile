@@ -47,6 +47,34 @@ export class FeatureComponent implements OnInit {
     this.createForm()
     this.loadScripts()
     let self = this;
+
+    $(document).on('click', '#deleteFeature', function(){
+      let id = $(this).data('id');
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          return self.featureService.destroyFeature(id)
+                    .subscribe(() => {
+                      // Reset Form after Save Agent
+                      self.resetForm();
+                      self.cd.detectChanges();
+                      $('#featureDatatables').DataTable().ajax.reload();
+                    });
+            }
+          })
+    });
   }
 
   public createFeature(){
@@ -126,7 +154,7 @@ export class FeatureComponent implements OnInit {
                 width: '10%'
               }, {
                 data : 'feature_name',
-                width: '5%'
+                width: '20%'
               }, {
                 data : 'feature_description',
                 width: '30%'
