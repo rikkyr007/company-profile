@@ -4,6 +4,7 @@ import { ReactiveFormsModule }                from '@angular/forms';
 
 // Lazy Load routing
 import { FeatureRoutingModule }           from "./feature-routing.module";
+import { DataTablesModule }               from "angular-datatables";
 
 // Component
 import { FeatureComponent }               from "./feature.component";
@@ -12,7 +13,8 @@ import { FeatureComponent }               from "./feature.component";
   imports: [
     CommonModule,
     FeatureRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   declarations: [FeatureComponent]
 })

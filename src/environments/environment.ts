@@ -5,8 +5,11 @@
 export const environment = {
   BASE_URL      : 'http://localhost:4200',
   prefix        : '',
-  assets_url     : 'http://localhost:4200/',
+  assets_url    : 'http://localhost:4200/',
   api_url       : 'http://localhost:8989/api',
+  image_url     : 'http://localhost:8989/api/image',
+  file_url      : 'http://localhost:8989/api/file',
+  files         : 'http://localhost:8989/api/files',
   production: false
 };
 

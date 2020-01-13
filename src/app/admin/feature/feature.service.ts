@@ -26,10 +26,10 @@ constructor(private apiService: ApiService) { }
   saveFeature(data): Observable<Feature>{
 
     let feature = {
-        id                   : String,
-        feature_description  : String,
-        feature_image        : String,
-        feature_name         : String
+        id                   : data.id,
+        feature_description  : data.feature_description,
+        feature_image        : data.feature_image,
+        feature_name         : data.feature_name
     }
 
     if(feature.id){

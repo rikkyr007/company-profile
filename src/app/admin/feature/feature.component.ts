@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef }                  from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone }                  from '@angular/core';
 import { FormBuilder, FormGroup, Validators }                    from '@angular/forms';
 
 // Service
@@ -6,9 +6,13 @@ import { FeatureService }                                        from './feature
 
 // Shared Service
 import { DynamicScriptLoaderService }                           from '../../shared/services/dynamic-script.service';
+import { SweetalertService }                                    from '../../shared/services/sweetalert.service';
+import { UploadFileService }                                    from '../../shared/services/upload-file.service';
+import Swal                                                     from 'sweetalert2/dist/sweetalert2.js';
 
 // Environtment
-import { environment }                                           from 'src/environments/environment';
+import { environment }                                          from 'src/environments/environment';
+import { HttpResponse, HttpEventType }                          from '@angular/common/http';
 
 // Library
 declare var $: any;
@@ -24,13 +28,20 @@ export class FeatureComponent implements OnInit {
       dataUrl           : String = environment.api_url
       prefix            : String = environment.prefix
       edited            : Boolean   = false
+      image_url = environment.image_url
+      imgUrl: String = null;
+      selectedFiles: FileList
+      currentFileUpload: File
+      progress: { percentage: number } = { percentage: 0 }
       
   constructor(
               private fb                  : FormBuilder,
               private featureService      : FeatureService,
               private cd                  : ChangeDetectorRef,
-              private dynamicScriptLoader   : DynamicScriptLoaderService
-             ) { }
+              private sweetalertService   : SweetalertService,
+              private dynamicScriptLoader   : DynamicScriptLoaderService,
+              private uploadFileService : UploadFileService,
+              private zone: NgZone) { }
 
   ngOnInit() {
     this.createForm()
@@ -41,9 +52,29 @@ export class FeatureComponent implements OnInit {
   public createFeature(){
     this.featureService.saveFeature(this.featureForm.value)
                   .subscribe(() => {
-                    
+                    this.sweetalertService.yourWorkHasBeenSaved('Data has been saved!');
+                    $('#featureDatatables').DataTable().ajax.reload();
+                    this.resetForm();
                   })
   }
+
+  public selectFile(event){
+    this.progress.percentage = 0
+    this.selectedFiles = event.target.files
+    this.currentFileUpload = this.selectedFiles.item(0)
+ 
+    this.uploadFileService.pushFileToStorage(this.currentFileUpload, '/features','image').subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        let EventBodyString = event.body.toString()
+        let myObj           = JSON.parse(EventBodyString)
+        this.imgUrl = myObj.fileUrl
+        this.featureForm.patchValue({ feature_image : myObj.fileName })
+      }
+    })
+    this.selectedFiles = undefined
+    }
 
   private createForm(){
     this.featureForm = this.fb.group({
@@ -81,7 +112,8 @@ export class FeatureComponent implements OnInit {
   public initDataTables(){
     let self = this;
     $(document).ready(function() {
-      $('#featureDatatables').DataTables({
+      //$('#featureDatatables').DataTable();
+      $('#featureDatatables').DataTable({
         ajax: {
                 'type'	      : 'GET',
                 'url'	        : self.dataUrl +  '/list/feature',
@@ -98,9 +130,6 @@ export class FeatureComponent implements OnInit {
               }, {
                 data : 'feature_description',
                 width: '30%'
-              },{
-                data : 'feature_image',
-                width: '20%'
               },{
                 data: null,
                 width: '20%', 
