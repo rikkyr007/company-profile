@@ -5,6 +5,7 @@
 export const environment = {
   BASE_URL      : 'http://localhost:4200',
   prefix        : '',
+  prefix_admin  : 'admin',
   assets_url    : 'http://localhost:4200/',
   api_url       : 'http://localhost:8989/api',
   image_url     : 'http://localhost:8989/api/image',

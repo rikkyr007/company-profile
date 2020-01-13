@@ -17,9 +17,16 @@
             <input type="text" class="form-control" id="featureName" placeholder="Enter feature name" formControlName="feature_name">
           </div>
           <div class="form-group">
-            <label for="featureDescription">Features Description</label>
-            <input type="text" class="form-control" id="featureDescription" placeholder="Enter feature description" formControlName="feature_description">
-          </div>
+            <label for="description">Description</label>
+            <app-ngx-editor
+                [placeholder]="'Enter Description here...'" 
+                [spellcheck]="true" 
+                formControlName="feature_description"
+                height="100px"></app-ngx-editor>
+            <div *ngIf="feature_description.invalid && feature_description.touched">
+            <small *ngIf="feature_description.errors?.required" class="text-danger">description Required</small>
+            </div>  
+        </div>
           <div class="form-group">
             <label for="feature_image">Features Image</label>
                 <div class="custom-file">

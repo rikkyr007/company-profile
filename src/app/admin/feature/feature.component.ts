@@ -13,6 +13,7 @@ import Swal                                                     from 'sweetalert
 // Environtment
 import { environment }                                          from 'src/environments/environment';
 import { HttpResponse, HttpEventType }                          from '@angular/common/http';
+import { Router } from '@angular/router';
 
 // Library
 declare var $: any;
@@ -26,7 +27,7 @@ export class FeatureComponent implements OnInit {
 
       featureForm       : FormGroup
       dataUrl           : String = environment.api_url
-      prefix            : String = environment.prefix
+      prefix_admin      : String = environment.prefix_admin
       edited            : Boolean   = false
       image_url = environment.image_url
       imgUrl: String = null;
@@ -35,18 +36,24 @@ export class FeatureComponent implements OnInit {
       progress: { percentage: number } = { percentage: 0 }
       
   constructor(
-              private fb                  : FormBuilder,
-              private featureService      : FeatureService,
-              private cd                  : ChangeDetectorRef,
-              private sweetalertService   : SweetalertService,
+              private fb                    : FormBuilder,
+              private featureService        : FeatureService,
+              private cd                    : ChangeDetectorRef,
+              private router                : Router,
+              private sweetalertService     : SweetalertService,
               private dynamicScriptLoader   : DynamicScriptLoaderService,
-              private uploadFileService : UploadFileService,
+              private uploadFileService     : UploadFileService,
               private zone: NgZone) { }
 
   ngOnInit() {
     this.createForm()
     this.loadScripts()
     let self = this;
+
+    $(document).on('click', '#editFeature', function(){
+      let id = $(this).data('id'); 
+      self.zone.run(() => self.router.navigate([ self.prefix_admin +'/feature/edit/' + id]))
+    });
 
     $(document).on('click', '#deleteFeature', function(){
       let id = $(this).data('id');

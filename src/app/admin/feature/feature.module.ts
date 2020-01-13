@@ -8,6 +8,9 @@ import { DataTablesModule }               from "angular-datatables";
 
 // Component
 import { FeatureComponent }               from "./feature.component";
+import { FeatureEditComponent } from './feature-edit/feature-edit.component';
+
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   imports: [
@@ -16,6 +19,6 @@ import { FeatureComponent }               from "./feature.component";
     ReactiveFormsModule,
     DataTablesModule
   ],
-  declarations: [FeatureComponent]
+  declarations: [FeatureComponent, FeatureEditComponent]
 })
 export class FeatureModule {}
