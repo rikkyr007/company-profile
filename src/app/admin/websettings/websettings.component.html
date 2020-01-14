@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+          WebSettings Management
+        </div>
+        <form [formGroup]="websettingsForm" (ngSubmit)="settingApply()">
+            <div class="card-body">
+              <input type="text" formControlName="id" class="hilang" />
+              <input type="hidden" formControlName="status" id="status">
+
+              <div class="form-group">
+                    <label for="web_tittle">Site Name</label>
+                    <input  type="text" 
+                            id="web_tittle" 
+                            pInputText 
+                            placeholder="Insert site name here..." 
+                            class="form-control" 
+                            formControlName="web_tittle"/>   
+              </div>
+              <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea 
+                              id="address" 
+                              rows="10" 
+                              cols="30" 
+                              class="form-control"
+                              pInputTextarea 
+                              autoResize="autoResize" 
+                              placeholder="Insert Address heree"
+                              formControlName="address"></textarea> 
+              </div>
+              <div class="form-group">
+                <label for="no_telp">No. Telp</label>
+                <input  type="text" 
+                  id="no_telp" 
+                  pInputText 
+                  placeholder="Insert No. Telp here..." 
+                  class="form-control" 
+                  formControlName="no_telp">   
+            </div>
+            <div class="form-group">
+                <label for="no_fax">No. Fax</label>
+                <input  type="text" 
+                  id="no_fax" 
+                  pInputText 
+                  placeholder="Insert No. Fax here..." 
+                  class="form-control" 
+                  formControlName="no_fax">   
+            </div>
+             <div class="form-group">
+                  <label for="email">Email</label>
+                  <input  type="text" 
+                    id="email" 
+                    pInputText 
+                    placeholder="Insert email here..." 
+                    class="form-control" 
+                    formControlName="email">   
+              </div>
+              <div class="form-group">
+                  <label for="logo_fb">Logo Facebook</label>
+                      <div class="custom-file">
+                            <input  type="file" 
+                                    class="custom-file-input" 
+                                    id="logo_fb" 
+                                    (change)="selectFile($event, 'logo_fb')"
+                                    accept="image/x-png,image/jpeg">
+                            <input type="text" formControlName="logo_fb" style="display: none;"/>
+                            <label class="custom-file-label" for="logo_fb">Choose file</label>
+                      </div>  
+                            <img [src]="logoFbUrl" *ngIf="logoFbUrl != null" width="50px" height="50px" />
+              </div>
+              <div class="form-group">
+                <label for="logo_twitter">Logo Twitter</label>
+                    <div class="custom-file">
+                        <input  type="file" 
+                              class="custom-file-input" 
+                              id="logo_twitter" 
+                              (change)="selectFile($event, 'logo_twitter')"
+                              accept="image/x-png,image/jpeg">
+                        <input type="text" formControlName="logo_twitter" style="display: none;"/>
+                        <label class="custom-file-label" for="logo_twitter">Choose file</label>
+                    </div>  
+                        <img [src]="logoTwitterUrl" *ngIf="logoTwitterUrl != null" width="50px" height="50px" />
+              </div>
+              <div class="form-group">
+                <label for="logo_instagram">Logo Instagram</label>
+                    <div class="custom-file">
+                        <input  type="file" 
+                                class="custom-file-input" 
+                                id="logo_instagram" 
+                                (change)="selectFile($event, 'logo_instagram')"
+                                accept="image/x-png,image/jpeg">
+                        <input type="text" formControlName="logo_instagram" style="display: none;"/>
+                        <label class="custom-file-label" for="logo_instagram">Choose file</label>
+                    </div>  
+                        <img [src]="logoInstagramUrl" *ngIf="logoInstagramUrl != null" width="50px" height="50px" />
+              </div>
+              <div class="form-group">
+                <label for="copyright">Copyright</label>
+                <textarea 
+                        id="copyright" 
+                        rows="10" 
+                        cols="30" 
+                        class="form-control"
+                        pInputTextarea 
+                        autoResize="autoResize" 
+                        placeholder="Insert Copyright heree"
+                        formControlName="copyright"></textarea> 
+             </div>
+             <button
+                    type="submit" 
+                    class="btn btn-icon icon-right btn-primary"
+                    [disabled]="!websettingsForm.valid">
+                    <i class="far fa-save"></i> Save</button>
+                 &nbsp;
+            </div>
+        </form>
+      </div>
+  </div>
+</section>
