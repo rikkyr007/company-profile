@@ -14,7 +14,8 @@ const routes: Routes = [
       children: [
           { path : '',                            redirectTo  : 'dashboard'},
           { path : 'dashboard',                   loadChildren: "./dashboard/dashboard.module#DashboardModule"},
-          { path : 'feature',                     loadChildren: "./feature/feature.module#FeatureModule"}
+          { path : 'feature',                     loadChildren: "./feature/feature.module#FeatureModule"},
+          { path : 'menusettings',                loadChildren: "./menusettings/menusettings.module#MenusettingsModule"}
       ]
   }
 ];

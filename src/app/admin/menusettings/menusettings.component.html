@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<section class="content-header">
+  <div class="container-fluid">
+
+    <!-- general form elements -->
+    <div class="card">
+      <div class="card-header">
+        Menu Management
+      </div>
+      <!-- form start -->
+      <form [formGroup]="menuForm" (ngSubmit)="createMenu()">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="menu_name">Menu Name<sup class="text-danger">*</sup></label>
+            <input type="text" formControlName="id" class="hilang"/>
+            <input  type="text" 
+                   id="menu_name" 
+                   class="form-control" 
+                   formControlName="menu_name"
+                   placeholder="Enter Name here..."
+                   [class.is-invalid]="menu_name.invalid &&
+                   menu_name.touched">   
+              <div *ngIf="menu_name.invalid && menu_name.touched">
+              <small *ngIf="menu_name.errors?.required" class="text-danger">Name Required</small>
+              </div>  
+          </div>
+          <div class="form-group">
+            <label for="MenuLink">Menu Link</label>
+            <app-ngx-editor
+                [placeholder]="'Enter Description here...'" 
+                [spellcheck]="true" 
+                formControlName="menu_link"
+                height="100px"></app-ngx-editor>
+            <div *ngIf="menu_link.invalid && menu_link.touched">
+            <small *ngIf="menu_link.errors?.required" class="text-danger">Link Required</small>
+            </div>  
+        </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button
+                *ngIf="!edited"
+                type="submit" 
+                [disabled]="!menuForm.valid"
+                class="btn btn-icon icon-right btn-primary">
+                <i class="far fa-save"></i> 
+          Save</button>
+          <button
+                *ngIf="edited"
+                type="submit" 
+                [disabled]="!menuForm.valid"
+                class="btn btn-icon icon-right btn-primary">
+                <i class="far fa-save"></i> 
+          Update</button>
+              &nbsp;
+              <a (click)="resetForm()"  class="btn btn-default">
+              <i class="fas fa-undo"></i>        
+              Reset
+              </a>
+        </div>
+      </form>
+    </div>
+    <!-- /.card -->
+
+    <div class="card card-primary">
+      <div class="card-body">
+        <table id="menuDatatables" class="table table-striped dataTable no-footer">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Menu Name</th>
+              <th>Menu Link</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      </div>
+
+    </div><!-- /.container-fluid -->
+  </section>

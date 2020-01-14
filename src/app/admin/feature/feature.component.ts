@@ -27,6 +27,7 @@ export class FeatureComponent implements OnInit {
 
       featureForm       : FormGroup
       dataUrl           : String = environment.api_url
+      prefix            : String = environment.prefix
       prefix_admin      : String = environment.prefix_admin
       edited            : Boolean   = false
       image_url = environment.image_url
@@ -88,9 +89,8 @@ export class FeatureComponent implements OnInit {
     this.featureService.saveFeature(this.featureForm.value)
                   .subscribe(() => {
                     this.sweetalertService.yourWorkHasBeenSaved('Data has been saved!');
-                    $('#featureDatatables').DataTable().ajax.reload();
-                    this.resetForm();
-                  })
+                    this.router.navigate([this.prefix + '/' + this.prefix_admin + '/feature'])
+                  })  
   }
 
   public selectFile(event){
