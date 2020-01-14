@@ -25,6 +25,7 @@ import { LoadingBarHttpClientModule }   from '@ngx-loading-bar/http-client';
     ReactiveFormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LoadingBarModule,
     LoadingBarHttpClientModule
   ],
   declarations: [
