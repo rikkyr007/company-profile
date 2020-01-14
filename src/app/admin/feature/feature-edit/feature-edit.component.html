@@ -1,3 +1,77 @@
-<p>
-  feature-edit works!
-</p>
+<link rel="stylesheet" href="assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<section class="content-header">
+  <div class="container-fluid">
+
+    <!-- general form elements -->
+    <div class="card">
+      <div class="card-header">
+        Feature Management
+      </div>
+      <!-- form start -->
+      <form [formGroup]="editFeature" (ngSubmit)="updateFeature()">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="feature_name">Feature Name<sup class="text-danger">*</sup></label>
+            <input  type="text" 
+                   id="feature_name" 
+                   class="form-control" 
+                   formControlName="feature_name"
+                   placeholder="fill title heree"
+                   [class.is-invalid]="feature_name.invalid &&
+                   feature_name.touched">   
+              <div *ngIf="feature_name.invalid && feature_name.touched">
+              <small *ngIf="feature_name.errors?.required" class="text-danger">Name Required</small>
+              </div>  
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <app-ngx-editor
+                [placeholder]="'Enter Description here...'" 
+                [spellcheck]="true" 
+                formControlName="feature_description"
+                height="100px"></app-ngx-editor>
+            <div *ngIf="feature_description.invalid && feature_description.touched">
+            <small *ngIf="feature_description.errors?.required" class="text-danger">Description Required</small>
+            </div>  
+        </div>
+          <div class="form-group">
+            <label for="feature_image">Features Image</label>
+                <div class="custom-file">
+                <input  type="file"
+                        class="custom-file-input"
+                        id="feature_image"
+                        (change)="selectFile($event)">
+                <input type="text" formControlName="feature_image" style="display: none;"/>
+                <label class="custom-file-label" for="feature_image">Choose file</label>
+                </div>  
+                <div class="progress mb-3 mt-2" *ngIf="progress.percentage > 0">
+                <div  class="progress-bar"
+                        role="progressbar"
+                        attr.aria-valuenow="{{progress.percentage}}"
+                        aria-valuemin="0" aria-valuemax="100"
+                        [ngStyle]="{width:progress.percentage+'%'}">{{progress.percentage}}%</div>
+                </div>
+                <img [src]="imgUrl" *ngIf="imgUrl != null" width="300px" height="300px" />
+            </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button class="btn btn-primary" 
+              type="submit"
+              [disabled]="!editFeature.valid">
+              <i class="far fa-save"></i>
+              save
+              </button>
+              &nbsp;
+              <a routerLink="/admin/feature" class="btn btn-default">
+                <i class="fas fa-arrow-circle-left"></i>
+                Cancel
+              </a>
+        </div>
+      </form>
+    </div>
+    <!-- /.card -->
+    </div><!-- /.container-fluid -->
+  </section>

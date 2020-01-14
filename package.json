@@ -36,7 +36,8 @@
     "sweetalert2": "^7.33.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
-    "ngx-editor": "^4.1.0"
+    "ngx-editor": "^4.1.0",
+    "ngx-bootstrap": "^4.0.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",

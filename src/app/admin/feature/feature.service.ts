@@ -42,6 +42,19 @@ constructor(private apiService: ApiService) { }
     
   }
 
+  updateFeature(id, data): Observable<Feature> {
+
+    let feature = {
+          id                   : data.id,
+          feature_description  : data.feature_description,
+          feature_image        : data.feature_image,
+          feature_name         : data.feature_name
+    }
+
+    return this.apiService.put("/feature/" + id, feature)
+        .pipe(map(data => data))
+  }
+
   getFeatureById(id: string): Observable<Feature>{
     return this.apiService.get("/feature/" + id)
                 .pipe(map(data => data));
