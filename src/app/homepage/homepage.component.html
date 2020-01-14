@@ -10,17 +10,8 @@
   </div>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
+          <li class="nav-item" *ngFor="let menu of ListMenu">
+              <a class="nav-link" href="{{ menu.menu_link }}">{{ menu.menu_name }}</a>
           </li>
       </ul>
   </div>
@@ -28,11 +19,11 @@
 
 <div class="container-fluid">
   <div class="row">
-      <div class="bground">
+      <div class="bground" [ngStyle]="{'background-image': 'url(' + bannerUrl + ')'}">
         <div class="position-relative overflow-hidden p-3 p-md-12 m-md-12 text-left bg-transparent">
           <div class="col-md-12 p-lg-12 my-12 pull-left">
-            <h1 class="display-4 font-weight-normal">Hellow World</h1>
-            <p class="lead font-weight-normal">Just simple page</p>
+            <h1 class="display-4 font-weight-normal">{{ Listbanner?.banner_title }}</h1>
+            <p class="lead font-weight-normal">{{ Listbanner?.banner_description }}</p>
             <a class="btn btn-primary" href="#">Coming soon</a>
           </div>
         </div>
@@ -45,27 +36,11 @@
       <div class="row">
         <div class="spacing1">
         <div class="feature-wrap shadow p-3 mb-5 bg-white rounded">
-        <div class="col-sm-3 offset-md-2">
-          <img class="feature-image" src="../../assets/frontend/img/feature/coffee.png" alt="Hot Coffee"><br>
+        <div class="col-sm-3" [ngClass]="{'offset-md-2': i === 0 }" *ngFor="let features of Listfeature; let i = index">
+          <img class="feature-image" src="{{ image_url + features.feature_image }}" width="72px" height="72pxy"><br>
           <div class="feature-header">
             <span class="feature-text">
-              A small river named Duden flows by their place and supplies it with this neccesary regelia
-            </span>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <img class="feature-image" src="../../assets/frontend/img/feature/pizza.png" alt="Hot Pizza"><br>
-          <div class="feature-header">
-            <span class="feature-text">
-              A small river named Duden flows by their place and supplies it with this neccesary regelia
-            </span>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <img class="feature-image" src="../../assets/frontend/img/feature/cigarretes.png" alt="Hot Cigarretes"><br>
-          <div class="feature-header">
-            <span class="feature-text">
-              A small river named Duden flows by their place and supplies it with this neccesary regelia
+              {{ features.feature_description }}
             </span>
           </div>
         </div>
@@ -78,54 +53,18 @@
   <div class="row">
     <div class="spacing2">
       <div class="product-wrap shadow p-3 mb-5 bg-white rounded">
-        <div class="col-lg-4">
-          <img class="product-background" src="../../assets/frontend/img/product/burger.png">
+        <div class="col-lg-4" *ngFor="let products of Listproduct">
+          <img class="product-background" src="{{ image_url + products.product_image }}">
               <div class="product-header">
                 &nbsp;
                 <h3>
-                  Burger XXL
+                  {{ products.product_name }}
                 </h3>
                 <h4>
-                  Rp. 10.000
+                  Rp. {{ products.product_price }}
                 </h4>
                 <p>
-                  A small river named Duden flows by their place and supplies it with this neccesary regelia <br>
-                </p>
-                <div>
-                <button class="btn btn-warning">Order now</button>
-                </div><br>
-              </div>
-        </div>
-        <div class="col-lg-4">
-          <img class="product-background" src="../../assets/frontend/img/product/burger.png">
-              <div class="product-header">
-                &nbsp;
-                <h3>
-                  Burger XXL
-                </h3>
-                <h4>
-                  Rp. 10.000
-                </h4>
-                <p>
-                  A small river named Duden flows by their place and supplies it with this neccesary regelia <br>
-                </p>
-                <div>
-                <button class="btn btn-warning">Order now</button>
-                </div><br>
-              </div>
-        </div>
-        <div class="col-lg-4">
-          <img class="product-background" src="../../assets/frontend/img/product/burger.png">
-              <div class="product-header">
-                &nbsp;
-                <h3>
-                  Burger XXL
-                </h3>
-                <h4>
-                  Rp. 10.000
-                </h4>
-                <p>
-                  A small river named Duden flows by their place and supplies it with this neccesary regelia <br>
+                  {{ products.product_description }} <br>
                 </p>
                 <div>
                 <button class="btn btn-warning">Order now</button>

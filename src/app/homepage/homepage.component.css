@@ -35,7 +35,7 @@
   
   .bground { 
     /* The image used */
-    background-image: url("../../assets/frontend/img/background.png");
+    /* background-image: url("../../assets/frontend/img/background.png"); */
   
     /* Full height */
     height: 100%; 
@@ -81,6 +81,10 @@
     display: flex;  
     align-items: center;
   }
+
+  .feature-text{
+    word-break: break-word;
+}
 
   .spacing1{
     background-color: white;

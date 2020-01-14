@@ -1,7 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { HostListener } from '@angular/core';
+import { Component, OnInit }          from '@angular/core';
+import { HostListener }               from '@angular/core';
 
-import { faFilm, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faCoffee }           from '@fortawesome/free-solid-svg-icons';
+
+//service
+
+import { MenusettingsService }        from '../admin/menusettings/menusettings.service' 
+import { WebSettingsService }         from '../admin/websettings/websettings.service'
+import { BannerService }              from '../admin/banner/banner.service'
+import { ProductService }             from '../admin/product/product.service'
+import { FeatureService }             from '../admin/feature/feature.service'
+
+// Environtment
+import { environment }                from 'src/environments/environment';
+
+// Model
+import { WebSettings }                from '../admin/websettings/websettings'
+import { Banner }                     from '../admin/Banner/banner'
+import { Product }                    from '../admin/product/product'
+import { Feature }                    from '../admin/feature/feature'
 
 @Component({
   selector: 'app-homepage',
@@ -10,12 +27,35 @@ import { faFilm, faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomepageComponent implements OnInit {
 
-  filmIcon = faFilm;
-  coffeeIcon = faCoffee;
-  constructor() { }
+  filmIcon                    = faFilm;
+  coffeeIcon                  = faCoffee;
+  image_url                   = environment.image_url
+  prefix             : String = environment.prefix
+
+  logoFbUrl          : String = null; 
+  logoIgUrl          : String = null;
+  logoTwitUrl        : String = null;
+  bannerUrl          : String = null;
+
+  constructor(  private menusettingsService     : MenusettingsService,
+                private websettingsService      : WebSettingsService,
+                private bannerService           : BannerService,
+                private productService          : ProductService,
+                private featureService          : FeatureService) { }
 
   ngOnInit() {
+      this.getListMenu()
+      this.initProduct()
+      this.initFeature()
+      this.initBanner()
   }
+
+    menu_name : String = null
+    ListMenu = []
+    websetting: WebSettings
+    Listbanner:  Banner
+    Listproduct: Product
+    Listfeature: Feature
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
@@ -31,6 +71,34 @@ export class HomepageComponent implements OnInit {
       element.classList.remove('navbar-light');
       element.classList.add('bg-transparent');
     }
+  }
+
+  public getListMenu(){
+    this.menusettingsService.getAll().subscribe((data) => {
+      this.ListMenu = data
+    })
+  }
+
+  private initProduct(){
+    return this.productService.getAll().subscribe((data) => {
+       this.Listproduct = data
+    })
+  }
+
+ private initFeature(){
+  return this.featureService.getAll().subscribe((data) => {
+     this.Listfeature = data
+  })
+  }
+
+  private initBanner(){
+    return this.bannerService.getSettingByStatus("0").subscribe((data) => {
+      this.Listbanner = data
+      if(data.banner_image){
+          this.bannerUrl = this.image_url + data.banner_image
+      }
+    })
+
   }
 
 }
