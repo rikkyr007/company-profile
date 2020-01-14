@@ -57,7 +57,7 @@ export class WebsettingsComponent implements OnInit {
   }
 
   initSetting(){
-
+    
     return this.websettingsService.getSettingByStatus("0")
       .subscribe((data) => { 
         console.log(data) 

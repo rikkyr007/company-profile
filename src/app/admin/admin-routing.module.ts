@@ -17,7 +17,8 @@ const routes: Routes = [
           { path : 'feature',                     loadChildren: "./feature/feature.module#FeatureModule"},
           { path : 'menusettings',                loadChildren: "./menusettings/menusettings.module#MenusettingsModule"},
           { path : 'product',                     loadChildren: "./product/product.module#ProductModule"},
-          { path : 'websettings',                     loadChildren: "./websettings/websettings.module#WebSettingsModule"}
+          { path : 'websettings',                 loadChildren: "./websettings/websettings.module#WebSettingsModule"},
+          { path : 'banner',                 loadChildren: "./banner/banner.module#BannerModule"}
       ]
   }
 ];
