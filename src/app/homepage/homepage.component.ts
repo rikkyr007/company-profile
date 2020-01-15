@@ -48,6 +48,7 @@ export class HomepageComponent implements OnInit {
       this.initProduct()
       this.initFeature()
       this.initBanner()
+      this.initSetting()
   }
 
     menu_name : String = null
@@ -97,6 +98,26 @@ export class HomepageComponent implements OnInit {
       if(data.banner_image){
           this.bannerUrl = this.image_url + data.banner_image
       }
+    })
+
+  }
+
+  private initSetting(){
+    return this.websettingsService.getSettingByStatus("0").subscribe((data) => {
+      this.websetting = data
+      
+      if(data.logo_fb){
+          this.logoFbUrl = this.image_url + data.logo_fb
+          }
+
+      if (data.logo_twitter){
+        this.logoTwitUrl = this.image_url + data.logo_twitter
+      }
+
+      if (data.logo_instagram){
+        this.logoIgUrl = this.image_url + data.logo_instagram
+      }
+
     })
 
   }
