@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
 
 // Shared Service
 import { DynamicScriptLoaderService }                           from '../shared/services/dynamic-script.service';
+
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
@@ -10,7 +12,12 @@ import { DynamicScriptLoaderService }                           from '../shared/
 })
 export class AdminComponent implements OnInit {
 
-  constructor( private dynamicScriptLoader   : DynamicScriptLoaderService) { }
+  constructor( private dynamicScriptLoader   : DynamicScriptLoaderService,
+              @Inject(DOCUMENT) document, r: Renderer2) {
+                r.addClass(document.body, 'hold-transition');
+                r.addClass(document.body, 'sidebar-mini');
+                r.addClass(document.body, 'layout-fixed');
+               }
 
   ngOnInit() {
     this.loadScripts()
