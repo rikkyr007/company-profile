@@ -1,0 +1,19 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" (scroll)="onWindowScroll($event);">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <ul class="navbar-nav mr-auto">
+          <a class="brand">{{ websetting?.web_tittle }}</a>
+      </ul>
+  </div>
+  <div class="mx-auto order-0">
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngFor="let menu of ListMenu">
+              <a class="nav-link" routerLink="{{ menu.menu_link }}" style="padding: 14px 35px;">{{ menu.menu_name }}</a>
+          </li>
+      </ul>
+  </div>
+</nav>

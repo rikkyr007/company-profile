@@ -5,20 +5,20 @@ import { faFilm, faCoffee }           from '@fortawesome/free-solid-svg-icons';
 
 //service
 
-import { MenusettingsService }        from '../admin/menusettings/menusettings.service' 
-import { WebSettingsService }         from '../admin/websettings/websettings.service'
-import { BannerService }              from '../admin/banner/banner.service'
-import { ProductService }             from '../admin/product/product.service'
-import { FeatureService }             from '../admin/feature/feature.service'
+import { MenusettingsService }        from '../../admin/menusettings/menusettings.service' 
+import { WebSettingsService }         from '../../admin/websettings/websettings.service'
+import { BannerService }              from '../../admin/banner/banner.service'
+import { ProductService }             from '../../admin/product/product.service'
+import { FeatureService }             from '../../admin/feature/feature.service'
 
 // Environtment
 import { environment }                from 'src/environments/environment';
 
 // Model
-import { WebSettings }                from '../admin/websettings/websettings'
-import { Banner }                     from '../admin/Banner/banner'
-import { Product }                    from '../admin/product/product'
-import { Feature }                    from '../admin/feature/feature'
+import { WebSettings }                from '../../admin/websettings/websettings'
+import { Banner }                     from '../../admin/Banner/banner'
+import { Product }                    from '../../admin/product/product'
+import { Feature }                    from '../../admin/feature/feature'
 
 @Component({
   selector: 'app-homepage',

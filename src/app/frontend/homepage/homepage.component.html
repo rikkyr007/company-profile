@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="bground" [ngStyle]="{'background-image': 'url(' + bannerUrl + ')'}">
+        <div class="position-relative overflow-hidden p-3 p-md-12 m-md-12 text-left bg-transparent">
+          <div class="col-md-12 p-lg-12 my-12 pull-left">
+            <h1 class="display-4 font-weight-normal banner-title">{{ Listbanner?.banner_title }}</h1>
+            <p class="lead font-weight-normal banner-desc">{{ Listbanner?.banner_description }}</p>
+            <a class="btn btn btn-outline-dark" href="#">Coming soon</a>
+          </div>
+        </div>
+        </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+      <div class="row">
+        <div class="spacing1">
+        <div class="feature-wrap shadow p-3 mb-5 bg-white rounded">
+        <div class="col-sm-3" [ngClass]="{'offset-md-2': i === 0 }" *ngFor="let features of Listfeature; let i = index">
+          <img class="feature-image" src="{{ image_url + features.feature_image }}" width="72px" height="72pxy"><br>
+          <div class="feature-header">
+            <span class="feature-text">
+              {{ features.feature_description }}
+            </span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="spacing2">
+      <div class="product-wrap shadow p-3 mb-5 bg-white rounded">
+        <div class="col-lg-4" *ngFor="let products of Listproduct">
+          <img class="product-background" src="{{ image_url + products.product_image }}">
+              <div class="product-header">
+                &nbsp;
+                <h3>
+                  {{ products.product_name }}
+                </h3>
+                <h4>
+                  Rp. {{ products.product_price }}
+                </h4>
+                <p>
+                  {{ products.product_description }} <br>
+                </p>
+                <div>
+                <button class="btn btn-warning">Order now</button>
+                </div><br>
+              </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+     <div class="footer">
+        <span>&copy; Rikky 2019. All right reserved.</span>
+    </div>
+  </div>
+</div> -->

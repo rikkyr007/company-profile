@@ -1,0 +1,22 @@
+.constructor-footer{
+    width: 100%;
+    min-height:300px;
+    height: 100%;
+    margin: auto;
+    background-color: grey;
+    color: white;
+}
+
+  .footerList {
+    display: flex;
+    align-items: center;
+  }
+
+.footerList > ul {
+    list-style-type: none;
+    line-height: 28px;
+ }
+
+.footerList > ul > li {
+    margin: 0 0 10px 0;
+}

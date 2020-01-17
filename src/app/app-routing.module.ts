@@ -1,12 +1,12 @@
 import { NgModule }               from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 
-import { HomepageComponent }      from './homepage/homepage.component';
+import { HomepageComponent }      from './frontend/homepage/homepage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent 
+    loadChildren: "./frontend/frontend.module#FrontendModule" 
   },
   {
     path: 'admin',
