@@ -1,5 +1,5 @@
 export const environment = {
-  BASE_URL      : 'http://54.169.118.106:8080/rikky-company-profile-web/',
+  BASE_URL      : 'http://riki.bandingin.com/',
   prefix        : '',
   prefix_admin  : 'admin',
   assets_url    : 'http://54.169.118.106:8080/rikky-company-profile-web/',
