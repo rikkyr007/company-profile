@@ -24,3 +24,9 @@
       color: white;
       font-family: 'Montserrat';
   }
+
+  .spacing1{
+    background-color: white;
+    height: 300px;
+    width: 100%;
+  }

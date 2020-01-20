@@ -13,7 +13,8 @@ const routes: Routes = [
       component: FrontendComponent,
       children: [
           { path : '',                            loadChildren: "./homepage/homepage.module#HomepageModule"},
-          { path : 'about',                       loadChildren: "./about/about.module#AboutModule"}
+          { path : 'about',                       loadChildren: "./about/about.module#AboutModule"},
+          { path : 'foodpedia',                   loadChildren: "./foodpedia/foodpedia.module#FoodpediaModule"}
       ]
   }
 ];

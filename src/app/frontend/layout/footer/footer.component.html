@@ -1,50 +1,50 @@
 <!--start footer-->
 <footer  class="container-fluid constructor-footer">
-  <div class="container py-5">
-      <div class="row">
-          <div class="col-md-6">
-             <span style="font-weight: bold">{{ websetting?.web_tittle }} Home</span>
-              <ul class="list-unstyled mt-md-3 mt-5">
-                  <p style="font-weight: bold;margin:4px;">Social Media</p>
-                   <li class="social">
-                     <a href="https://www.facebook.com/">
-                     <img [src]="logoFbUrl" *ngIf="logoFbUrl != null" width="40px" height="40px" /></a>&nbsp;
-                      <a href="https://www.instagram.com/">
-                      <img [src]="logoIgUrl" *ngIf="logoIgUrl != null" width="40px" height="40px" /></a>&nbsp;
-                      <a href="https://www.twitter.com/">
-                       <img [src]="logoTwitUrl" *ngIf="logoTwitUrl != null" width="40px" height="40px" /></a>
-                  </li>
-              </ul>
-          </div>
-          <div class="col-md-6">
-              <div class="footerList">
-              <ul>
-                  <span style="font-weight: bold">{{ websetting?.web_tittle }}</span>
-                  <li style="font-weight: bold">
-                      <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-address-book"></i>&nbsp;{{ websetting?.address }}</a></li>
-                  <li style="font-weight: bold">
-                      <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-phone">&nbsp;{{ websetting?.no_telp }}</i></a></li>
-                  <li style="font-weight: bold">
-                      <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-fax">&nbsp;{{ websetting?.no_fax }}</i></a></li>
-                  <li style="font-weight: bold">
-                    <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-envelope">&nbsp;{{ websetting?.email }}</i></a></li>
-              </ul>
-              </div>
-          </div>
-      </div>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+               <span style="font-weight: bold">{{ websetting?.web_tittle }} Home</span>
+                <ul class="list-unstyled mt-md-3 mt-5">
+                    <p style="font-weight: bold;margin:4px;">Social Media</p>
+                     <li class="social">
+                       <a href="https://www.facebook.com/">
+                       <img [src]="logoFbUrl" *ngIf="logoFbUrl != null" width="40px" height="40px" /></a>&nbsp;
+                        <a href="https://www.instagram.com/">
+                        <img [src]="logoIgUrl" *ngIf="logoIgUrl != null" width="40px" height="40px" /></a>&nbsp;
+                        <a href="https://www.twitter.com/">
+                         <img [src]="logoTwitUrl" *ngIf="logoTwitUrl != null" width="40px" height="40px" /></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="footerList">
+                <ul>
+                    <span style="font-weight: bold">{{ websetting?.web_tittle }}</span>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-address-book"></i>&nbsp;{{ websetting?.address }}</a></li>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-phone">&nbsp;{{ websetting?.no_telp }}</i></a></li>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-fax">&nbsp;{{ websetting?.no_fax }}</i></a></li>
+                    <li style="font-weight: bold">
+                      <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-envelope">&nbsp;{{ websetting?.email }}</i></a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </footer>
+  <!---end footer-->
+  
+  <!--start copyright-->
+  
+  <div class="container-fluid bg-dark text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="height: 50px;display: flex;justify-content: center;align-items: center;">
+                <span class="text-light">Copyright &copy; {{ websetting?.copyright }} 2019.</span>
+            </div>
+        </div>
+    </div>
   </div>
-</footer>
-<!---end footer-->
-
-<!--start copyright-->
-
-<div class="container-fluid bg-dark text-center">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12" style="height: 50px;display: flex;justify-content: center;align-items: center;">
-              <span class="text-light">Copyright &copy; {{ websetting?.copyright }} 2019.</span>
-          </div>
-      </div>
-  </div>
-</div>
-<!--end copyright-->
+  <!--end copyright-->
