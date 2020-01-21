@@ -45,7 +45,7 @@ export class FoodpediaManagementService {
     }
   }
 
-  updateFeature(id, data): Observable<FoodpediaManagement> {
+  updateFoodpedia(id, data): Observable<FoodpediaManagement> {
 
     let foodpedia = {
         id                      : data.id,

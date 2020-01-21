@@ -41,6 +41,11 @@ export class FoodpediaManagementComponent implements OnInit {
     this.loadScripts();
     let self = this;
 
+    $(document).on('click', '#editFoodpedia', function(){
+      let id = $(this).data('id'); 
+      self.zone.run(() => self.router.navigate([ self.prefix_admin +'/foodpedia-management/edit/' + id]))
+    });
+
     $(document).on('click', '#deleteFoodpedia', function(){
       let id = $(this).data('id');
         Swal.fire({

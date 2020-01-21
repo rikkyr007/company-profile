@@ -10,6 +10,7 @@ import { DataTablesModule }                     from "angular-datatables";
 import { FoodpediaManagementComponent }         from "./foodpedia-management.component";
 
 import { NgxEditorModule }                      from 'ngx-editor';
+import { FoodpediaManagementEditComponent }     from './foodpedia-management-edit/foodpedia-management-edit.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { NgxEditorModule }                      from 'ngx-editor';
     DataTablesModule,
     NgxEditorModule
   ],
-  declarations: [FoodpediaManagementComponent]
+  declarations: [FoodpediaManagementComponent, FoodpediaManagementEditComponent]
 })
 export class FoodpediaManagementModule {}
