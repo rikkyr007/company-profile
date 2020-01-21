@@ -39,6 +39,34 @@ export class FoodpediaManagementComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.loadScripts();
+    let self = this;
+
+    $(document).on('click', '#deleteFoodpedia', function(){
+      let id = $(this).data('id');
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          return self.foodpediaManagementService.destroyFoodpedia(id)
+                    .subscribe(() => {
+                      // Reset Form after Save Agent
+                      self.cd.detectChanges();
+                      $('#foodpediaDatatables').DataTable().ajax.reload();
+                    });
+            }
+          })
+    });
   }
 
   foodpediaMgForm   : FormGroup

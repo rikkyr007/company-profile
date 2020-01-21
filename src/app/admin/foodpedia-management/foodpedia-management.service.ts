@@ -63,12 +63,12 @@ export class FoodpediaManagementService {
         .pipe(map(data => data))
   }
 
-  getFeatureById(id: string): Observable<FoodpediaManagement>{
+  getFoodpediaById(id: string): Observable<FoodpediaManagement>{
     return this.apiService.get("/foodpedia/" + id)
                 .pipe(map(data => data));
   }
 
-  destroyFeature(id: string): Observable<FoodpediaManagement>{
+  destroyFoodpedia(id: string): Observable<FoodpediaManagement>{
     return this.apiService.delete("/foodpedia/" + id)
                 .pipe(map(data => data));
   }

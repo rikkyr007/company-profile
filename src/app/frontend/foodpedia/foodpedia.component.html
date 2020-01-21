@@ -21,8 +21,9 @@
 
 <div *ngFor="let foodpedia of ListFoodpedia; let i = index">
 <div [ngClass]="i%2 === 0 ? 'menu-wrap' : 'menu-wrap2'" #target>
-  <!-- <div class="menu_title" style="width: 100%; text-align: center;"><h2>Our Foodpedia</h2>
-    <span class="long_dash"></span></div> -->
+<div class="menu_title" [ngClass]="{'hidden': i > 0 }" style="width: 100%; text-align: center;">
+  <h2>Our Foodpedia</h2>
+<span class="long_dash"></span></div>
 <div class="container">
   <div class="row menu_pos">
     <div class="col-md-6" [ngClass]="i%2 === 0 ? 'order-1' : 'order-12'">
@@ -47,7 +48,7 @@
           <img src="{{ image_url + foodpedia.foodpedia_image1 }}" alt="" width="490px" height="469px">
           </div>
           <div class="small_img" [ngClass]="i%2 === 0 ? 'small_img' : 'small_img_2'">
-          <img class="rounded-image" src="{{ image_url + foodpedia.foodpedia_image2 }}" alt="" width="351px" height="324px">
+          <img style="border-radius: 10px;" src="{{ image_url + foodpedia.foodpedia_image2 }}" alt="" width="351px" height="324px">
           </div>
         </div>
       </div>
