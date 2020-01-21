@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="../../../assets/backend/adminlte/dataTables.bootstrap4.css">
+
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header border-0">
+			  <div class="d-flex justify-content-between">
+				<h3 class="card-title">Foodpedia Management</h3>
+			  </div>
+      </div>
+      <form [formGroup]="foodpediaMgForm" (ngSubmit)="createFoodpedia()">
+			<div class="card-body">
+				<div class="form-group">
+					<label for="foodpedia_title">Foodpedia Title <sup class="text-danger">*</sup></label>
+					<input  type="text" formControlName="id" class="hilang"/>
+					<input  type="text" 
+							id="foodpedia_title" 
+							class="form-control" 
+							formControlName="foodpedia_title" 
+							placeholder="Enter Title here..."
+							[class.is-invalid]="foodpedia_title.invalid && foodpedia_title.touched">
+					<div *ngIf="foodpedia_title.invalid && foodpedia_title.touched">
+					  <small *ngIf="foodpedia_title.errors?.required" class="text-danger">Title Required</small>
+					</div> 
+				</div>
+				
+				<div class="form-group">
+					<label for="foodpedia_description">Description <sup class="text-danger">*</sup></label>
+					<input  type="text" 
+							id="foodpedia_description" 
+							class="form-control" 
+							formControlName="foodpedia_description" 
+							placeholder="Enter Description here..."
+							[class.is-invalid]="foodpedia_title.invalid && foodpedia_title.touched">
+					<div *ngIf="foodpedia_description.invalid && foodpedia_description.touched">
+						<small *ngIf="foodpedia_description.errors?.required" class="text-danger">Description Required</small>
+					</div> 
+				</div>
+				
+				<div class="form-group">
+					<label for="foodpedia_image1">Large Image <sup class="text-danger">*</sup></label>
+						<div class="custom-file">
+						<input  type="file"
+								class="custom-file-input"
+								id="foodpedia_image1"
+                (change)="selectFile($event, 'foodpedia_image1')"
+                accept="image/x-png,image/jpeg">
+						<input type="text" formControlName="foodpedia_image1" style="display: none;"/>
+						<label class="custom-file-label" for="foodpedia_image1">Choose file</label>
+						</div>
+						<img [src]="foodpedia_image1" *ngIf="foodpedia_image1 != null" width="300px" height="300px" />
+				</div>
+
+				<div class="form-group">
+				  <label for="foodpedia_image2">Small Image <sup class="text-danger">*</sup></label>
+					  <div class="custom-file">
+					  <input  type="file"
+							  class="custom-file-input"
+							  id="foodpedia_image2"
+                (change)="selectFile($event, 'foodpedia_image2')"
+                accept="image/x-png,image/jpeg">
+					  <input type="text" formControlName="foodpedia_image2" style="display: none;"/>
+					  <label class="custom-file-label" for="foodpedia_image2">Choose file</label>
+					  </div>
+					  <img [src]="foodpedia_image2" *ngIf="foodpedia_image2 != null" width="300px" height="300px" />
+				</div>
+
+					<div class="form-group">
+						<label for="foodpedia_tagimage1">Tag Image 1<sup class="text-danger">*</sup></label>
+							<div class="custom-file">
+							<input  type="file"
+									class="custom-file-input"
+									id="foodpedia_tagimage1"
+                  (change)="selectFile($event, 'foodpedia_tagimage1')"
+                  accept="image/x-png,image/jpeg">
+							<input type="text" formControlName="foodpedia_tagimage1" style="display: none;"/>
+							<label class="custom-file-label" for="foodpedia_tagimage1">Choose file</label>
+							</div>
+							<img [src]="foodpedia_tagimage1" *ngIf="foodpedia_tagimage1 != null" width="300px" height="300px" />
+					</div>
+
+					<div class="form-group">
+					  <label for="foodpedia_desctag1">Description Tag 1 <sup class="text-danger">*</sup></label>
+					  <input  type="text" 
+							  id="foodpedia_desctag1" 
+							  class="form-control" 
+							  formControlName="foodpedia_desctag1" 
+							  placeholder="Enter Description Tag 1 here..."
+							  [class.is-invalid]="foodpedia_title.invalid && foodpedia_title.touched">
+						<div *ngIf="foodpedia_desctag1.invalid && foodpedia_desctag1.touched">
+							<small *ngIf="foodpedia_desctag1.errors?.required" class="text-danger">Description Required</small>
+						</div> 
+					</div>
+
+					<div class="form-group">
+					  <label for="foodpedia_tagimage2">Tag Image 2 <sup class="text-danger">*</sup></label>
+						  <div class="custom-file">
+						  <input  type="file"
+								  class="custom-file-input"
+								  id="foodpedia_tagimage2"
+                  (change)="selectFile($event, 'foodpedia_tagimage2')"
+                  accept="image/x-png,image/jpeg">
+						  <input type="text" formControlName="foodpedia_tagimage2" style="display: none;"/>
+						  <label class="custom-file-label" for="foodpedia_tagimage2">Choose file</label>
+						  </div>
+						  <img [src]="foodpedia_tagimage2" *ngIf="foodpedia_tagimage2 != null" width="300px" height="300px" />
+					  </div>
+
+					  <div class="form-group">
+						<label for="foodpedia_desctag2">Description Tag 2 <sup class="text-danger">*</sup></label>
+						<input  type="text" 
+								id="foodpedia_desctag2" 
+								class="form-control" 
+								formControlName="foodpedia_desctag2" 
+								placeholder="Enter Description Tag 2 here..."
+								[class.is-invalid]="foodpedia_title.invalid && foodpedia_title.touched">
+						  <div *ngIf="foodpedia_desctag2.invalid && foodpedia_desctag2.touched">
+							  <small *ngIf="foodpedia_desctag2.errors?.required" class="text-danger">Description Required</small>
+						  </div> 
+					  </div>
+				
+			</div>
+			<div class="card-footer">
+			<button class="btn btn-primary" 
+              type="submit"
+              [disabled]="!foodpediaMgForm.valid">
+              <i class="far fa-save"></i>
+              Save
+              </button>
+              &nbsp;
+      </div>
+    </form>
+    </div>
+    
+      <div class="card card-primary">
+        <div class="card-body">
+          <table id="foodpediaDatatables" class="table table-bordered table-hover dataTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Foodpedia Title</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+</section>

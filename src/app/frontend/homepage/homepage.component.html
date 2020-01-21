@@ -1,11 +1,12 @@
 <div class="container-fluid">
   <div class="row">
       <div class="bground" [ngStyle]="{'background-image': 'url(' + bannerUrl + ')'}">
+        <div class="overlay"></div>
         <div class="position-relative overflow-hidden p-3 p-md-12 m-md-12 text-left bg-transparent">
           <div class="col-md-12 p-lg-12 my-12 pull-left">
             <h1 class="display-4 font-weight-normal banner-title">{{ Listbanner?.banner_title }}</h1>
             <p class="lead font-weight-normal banner-desc">{{ Listbanner?.banner_description }}</p>
-            <a class="btn btn btn-outline-dark" href="#">Coming soon</a>
+            <a class="btn btn btn-warning" href="#"><b>Coming soon</b></a>
           </div>
         </div>
         </div>
@@ -17,6 +18,13 @@
       <div class="row">
         <div class="spacing1">
         <div class="feature-wrap shadow p-3 mb-5 bg-white rounded">
+        <div style="min-height: 300px;
+        background-color: transparent;
+        position: absolute;
+        margin-left: 435px;
+        margin-top: 15px;">
+          <h2>Our Features</h2>
+        </div>
         <div class="col-sm-3" [ngClass]="{'offset-md-2': i === 0 }" *ngFor="let features of Listfeature; let i = index">
           <img class="feature-image" src="{{ image_url + features.feature_image }}" width="72px" height="72pxy"><br>
           <div class="feature-header">
@@ -33,9 +41,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="spacing2">
-      <div class="product-wrap shadow p-3 mb-5 bg-white rounded">
+      <div class="product-wrap p-3 mb-5 bg-white rounded">
         <div class="col-lg-4" *ngFor="let products of Listproduct">
-          <img class="product-background" src="{{ image_url + products.product_image }}">
+          <img class="product-background rounded" src="{{ image_url + products.product_image }}">
               <div class="product-header">
                 &nbsp;
                 <h3>
@@ -48,7 +56,7 @@
                   {{ products.product_description }} <br>
                 </p>
                 <div>
-                <button class="btn btn-warning">Order now</button>
+                <button class="btn btn-warning"><b>Order now</b></button>
                 </div><br>
               </div>
         </div>

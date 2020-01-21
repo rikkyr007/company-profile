@@ -3,6 +3,7 @@
       <!-- <div class="bground" [ngStyle]="{'background-image': 'url(' + bannerUrl + ')'}" > -->
         <div class="bground">
         <div class="overlay"></div>
+        <div class="container">
         <div class="position-relative overflow-hidden p-3 p-md-12 m-md-12 text-left bg-transparent">
           <div class="col-md-12 p-lg-12 my-12 pull-right">
             <span class="name">
@@ -10,50 +11,51 @@
             <p class="lead font-weight-normal">O R</p>
             <h1 class="display-4 font-weight-normal">E A T E D</h1>
             </span>
+            <button (click)="scroll(target)" class="btn btn-large btn-warning">View Menus</button>
           </div>
+        </div>
         </div>
         </div>
   </div>
 </div>
 
-<div class="menu-wrap">
-  <div class="icon_1 d-none d-md-block">
-    <img src="https://colorlib.com/preview/theme/resta/img/icon/1.png">
-  </div>
+<div *ngFor="let foodpedia of ListFoodpedia; let i = index">
+<div [ngClass]="i%2 === 0 ? 'menu-wrap' : 'menu-wrap2'" #target>
+  <!-- <div class="menu_title" style="width: 100%; text-align: center;"><h2>Our Foodpedia</h2>
+    <span class="long_dash"></span></div> -->
 <div class="container">
   <div class="row menu_pos">
-    <div class="col-md-6">
+    <div class="col-md-6" [ngClass]="i%2 === 0 ? 'order-1' : 'order-12'">
       <div class="menu_info_wrap">
-        <h3>Sed ut perspiciatis unde <br>
-        omnis iste natus</h3>
+        <h3>{{ foodpedia.foodpedia_title }}</h3>
         <span class="long_dash"></span>
-        <p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Exercitation photo booth stumptown tote bag todo Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation photo booth et 8-bit kale chips proident chillwave deep vow laborum. Aliquip veniam delectus, marfa eiusmod pinterest.</p>
+        <p>{{ foodpedia.foodpedia_description }}</p>
         <table width="100%">
         <tr>
-          <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/salad.svg" alt="">
-             <span class="info">  Fresh Ingredients</span></td>
-          <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/tray.svg" alt="">
-            <span class="info">  Expert cooker</span></td>
+          <td><img src="{{ image_url + foodpedia.foodpedia_tagimage1 }}" alt="" width="50px" height="50px">
+             <span [ngClass]="i%2 === 0 ? 'info' : 'info2'">  {{ foodpedia.foodpedia_desctag1 }}</span></td>
+          <td><img src="{{ image_url + foodpedia.foodpedia_tagimage2 }}" alt="" width="50px" height="50px">
+            <span [ngClass]="i%2 === 0 ? 'info' : 'info2'">  {{ foodpedia.foodpedia_desctag2 }}</span></td>
         </tr>
       </table>
       </div>
     </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6" [ngClass]="i%2 === 0 ? 'order-12' : 'order-1'">
         <div class="menu_image">
-          <div class="img_1">
-          <img src="https://colorlib.com/preview/theme/resta/img/about/big.png" alt="">
+          <div [ngClass]="i%2 === 0 ? 'img_1' : 'img_2'">
+          <img src="{{ image_url + foodpedia.foodpedia_image1 }}" alt="" width="490px" height="469px">
           </div>
-          <div class="small_img">
-          <img class="rounded-image" src="https://colorlib.com/preview/theme/resta/img/about/small.png" alt="">
+          <div class="small_img" [ngClass]="i%2 === 0 ? 'small_img' : 'small_img_2'">
+          <img class="rounded-image" src="{{ image_url + foodpedia.foodpedia_image2 }}" alt="" width="351px" height="324px">
           </div>
         </div>
       </div>
     </div>
 </div>
 </div>
-
-<div class="menu-wrap2">
+</div>
+<!-- <div class="menu-wrap2">
 <div class="container">
   <div class="row menu_pos">
     <div class="col-md-6">
@@ -65,20 +67,6 @@
         <img class="rounded-image" src="https://colorlib.com/preview/theme/resta/img/about/small.png" alt="">
         </div>
       </div>
-      <!-- <div class="menu_info_wrap">
-        <h3>Sed ut perspiciatis unde <br>
-        omnis iste natus</h3>
-        <span class="long_dash"></span>
-        <p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Exercitation photo booth stumptown tote bag todo Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation photo booth et 8-bit kale chips proident chillwave deep vow laborum. Aliquip veniam delectus, marfa eiusmod pinterest.</p>
-        <table width="100%">
-        <tr>
-          <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/salad.svg" alt="">
-             <span class="info">  Fresh Ingredients</span></td>
-          <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/tray.svg" alt="">
-            <span class="info">  Expert cooker</span></td>
-        </tr>
-      </table>
-      </div> -->
     </div>
 
     <div class="icon_2 d-none d-md-block">
@@ -86,28 +74,19 @@
     </div>
       <div class="col-md-6">
         <div class="menu_info_wrap">
-          <h3>Sed ut perspiciatis unde <br>
-          omnis iste natus</h3>
+          <h3>{{ foodpedia.foodpedia_title }}</h3>
           <span class="long_dash"></span>
-          <p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Exercitation photo booth stumptown tote bag todo Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation photo booth et 8-bit kale chips proident chillwave deep vow laborum. Aliquip veniam delectus, marfa eiusmod pinterest.</p>
+          <p>{{ foodpedia.foodpedia_description }}</p>
           <table width="100%">
           <tr>
             <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/salad.svg" alt="">
-               <span class="info2">  Fresh Ingredients</span></td>
+               <span class="info2">  {{ foodpedia.foodpedia_desctag1 }}</span></td>
             <td><img src="https://colorlib.com/preview/theme/resta/img/svg_icon/tray.svg" alt="">
-              <span class="info2">  Expert cooker</span></td>
+              <span class="info2"> {{ foodpedia.foodpedia_desctag2 }}</span></td>
           </tr>
         </table>
         </div>
-        <!-- <div class="menu_image">
-          <div class="img_1">
-          <img src="https://colorlib.com/preview/theme/resta/img/about/big.png" alt="">
-          </div>
-          <div class="small_img">
-          <img class="rounded-image" src="https://colorlib.com/preview/theme/resta/img/about/small.png" alt="">
-          </div>
-        </div> -->
       </div>
     </div>
 </div>
-</div>
+</div> -->

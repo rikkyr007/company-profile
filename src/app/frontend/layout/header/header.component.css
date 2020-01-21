@@ -3,7 +3,7 @@
   .navbar-nav a{
     padding: 14px 10px;
     text-transform: uppercase;
-    font-family: Avenir;
+    font-family: 'Roboto';
     font-size: 14px;
     font-weight: bold;
     color: white;
@@ -16,7 +16,7 @@
   
   .toggle-nav a{
     text-transform: uppercase;
-    font-family: Avenir;
+    font-family: 'Roboto';
     font-size: 14px;
     font-weight: bold;
     color: white;

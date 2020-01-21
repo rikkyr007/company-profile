@@ -13,7 +13,7 @@ import Swal                                                     from 'sweetalert
 // Environtment
 import { environment }                                          from 'src/environments/environment';
 import { HttpResponse, HttpEventType }                          from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router }                                               from '@angular/router';
 
 // Library
 declare var $: any;
@@ -134,12 +134,15 @@ export class FeatureComponent implements OnInit {
   get id(){
     return this.featureForm.get('id');
   }
+
   get feature_description(){
     return this.featureForm.get('feature_description');
   }
+
   get feature_image(){
     return this.featureForm.get('feature_image');
   }
+
   get feature_name(){
     return this.featureForm.get('feature_name');
   }
