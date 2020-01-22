@@ -5,7 +5,7 @@ import { RouterModule, Routes }             from "@angular/router";
 import { environment }                      from '../../environments/environment'
 
 // Package
-import { FrontendComponent }                   from './frontend.component';
+import { FrontendComponent }                from './frontend.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,8 @@ const routes: Routes = [
       children: [
           { path : '',                            loadChildren: "./homepage/homepage.module#HomepageModule"},
           { path : 'about',                       loadChildren: "./about/about.module#AboutModule"},
-          { path : 'foodpedia',                   loadChildren: "./foodpedia/foodpedia.module#FoodpediaModule"}
+          { path : 'foodpedia',                   loadChildren: "./foodpedia/foodpedia.module#FoodpediaModule"},
+          { path : 'contact-us',                  loadChildren: "./contact-us/contact-us.module#ContactUsModule"}
       ]
   }
 ];

@@ -98,7 +98,7 @@
   display: flex; 
 }
 
-.product-header{
+.product-content{
   position: absolute;
   margin-left: 35px;
   bottom: 20px;
@@ -106,9 +106,19 @@
   background: rgba(255,255,255, 0.8);
   color: black;
   padding-left: 30px;
-  padding-right: 20px;
+  min-height: 250px;
 }
 
 .product-background{
   width:100%;
+  min-height: 300px;
+}
+
+.product-description{
+  min-height: 80px;
+}
+
+.product-button{
+  min-height: 50px;
+  margin-top: 10px;
 }

@@ -1,0 +1,38 @@
+
+.contact{
+    height: 100%; 
+    min-height: 800px;
+    width:100%;
+    padding: 15px;
+    background: url("../../../assets/frontend/img/banner/foodpedia.png");
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-contact {
+    width: 1163px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 90px 130px 88px 148px;
+}
+
+.form-group input {
+    border: none; 
+    border:solid 1px #ccc;
+    border-radius: 10px;
+}

@@ -44,18 +44,24 @@
       <div class="product-wrap p-3 mb-5 bg-white rounded">
         <div class="col-lg-4" *ngFor="let products of Listproduct">
           <img class="product-background rounded" src="{{ image_url + products.product_image }}">
-              <div class="product-header">
+              <div class="product-content">
                 &nbsp;
+                <div class="product-header">
                 <h3>
                   {{ products.product_name }}
                 </h3>
+                </div>
+                <div class="product-price">
                 <h4>
                   Rp. {{ products.product_price }}
                 </h4>
+                </div>
+                <div class="product-description">
                 <p>
                   {{ products.product_description }} <br>
                 </p>
-                <div>
+                </div>
+                <div class="product-button">
                 <button class="btn btn-warning"><b>Order now</b></button>
                 </div><br>
               </div>

@@ -20,7 +20,8 @@ const routes: Routes = [
           { path : 'websettings',                 loadChildren: "./websettings/websettings.module#WebSettingsModule"},
           { path : 'banner',                      loadChildren: "./banner/banner.module#BannerModule"},
           { path : 'foodpedia-management',        loadChildren: "./foodpedia-management/foodpedia-management.module#FoodpediaManagementModule"},
-          { path : 'about-management',            loadChildren: "./about-management/about-management.module#AboutManagementModule"}
+          { path : 'about-management',            loadChildren: "./about-management/about-management.module#AboutManagementModule"},
+          { path : 'contact-detail',              loadChildren: "./contact-detail/contact-detail.module#ContactDetailModule"}
       ]
   }
 ];
