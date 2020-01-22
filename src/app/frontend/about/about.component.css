@@ -1,6 +1,6 @@
 .bground { 
     /* The image used */
-    background-image: url("https://kayakuliner.com/wp-content/uploads/2018/08/awesome-indian-food-640x360.jpg");
+    background-image: url("../../../assets/frontend/img/banner/about.jpg");
   
     /* Full height */
     height: 100%; 
@@ -16,6 +16,23 @@
     background-size: cover;
   }
 
+  .overlay { 
+    /* Full height */
+    height: 75%; 
+    min-height: 500px;
+    width:100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: black;
+    opacity: 0.5;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+
   .kotakputih{
       background-color: white;
   }
@@ -27,6 +44,6 @@
 
   .spacing1{
     background-color: white;
-    height: 300px;
+    height: 500px;
     width: 100%;
   }

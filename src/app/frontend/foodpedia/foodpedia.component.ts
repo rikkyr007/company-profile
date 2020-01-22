@@ -25,16 +25,16 @@ export class FoodpediaComponent implements OnInit {
     this.initFoodpedia();
   }
 
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+
   image_url                = environment.image_url
   ListFoodpedia   : FoodpediaManagement;
   image1          : String = null;
   image2          : String = null;
   tagimage1       : String = null;
   tagimage2       : String = null;
-
-  scroll(el: HTMLElement) {
-    el.scrollIntoView();
-  }
 
   private initFoodpedia(){
     return this.foodpediaManagementService.getAll().subscribe((data) => {

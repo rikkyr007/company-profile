@@ -1,0 +1,30 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+          About Management
+        </div>
+        <form [formGroup]="aboutForm" (ngSubmit)="saveAbout()">
+            <div class="card-body">
+              <input type="hidden" formControlName="id" />
+              <div class="form-group">
+                    <label for="about_description">About Description</label>
+                    <app-ngx-editor
+                    [placeholder]="'Enter Description here...'" 
+                    [spellcheck]="true" 
+                    formControlName="about_description"
+                    height="100px">
+                  </app-ngx-editor>
+              </div>
+              <button
+                        type="submit" 
+                        class="btn btn-icon icon-right btn-primary"
+                        [disabled]="!aboutForm.valid">
+                        <i class="far fa-save"></i> Save
+              </button>
+              &nbsp;
+            </div>
+        </form>
+      </div>
+  </div>
+</section>

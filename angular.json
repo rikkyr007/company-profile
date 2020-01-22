@@ -31,7 +31,7 @@
             ],
             "scripts": [
               "src/assets/backend/adminlte/plugins/jquery/jquery.min.js",
-              "./node_modules/jquery-ui-dist/jquery-ui.min.js"
+              "src/assets/backend/adminlte/plugins/jquery/jquery-ui.min.js"
             ],
             "es5BrowserSupport": true
           },
