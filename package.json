@@ -30,7 +30,7 @@
     "core-js": "^2.5.4",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ui-dist": "^1.12.1",
     "rxjs": "~6.3.3",
     "sweetalert2": "^7.33.1",
