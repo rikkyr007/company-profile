@@ -28,7 +28,7 @@
     "angular-datatables": "^7.0.0",
     "angular-datatables-all-versions": "^1.2.2",
     "core-js": "^2.5.4",
-    "datatables.net": "^1.10.20",
+    "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
     "jquery-ui-dist": "^1.12.1",
